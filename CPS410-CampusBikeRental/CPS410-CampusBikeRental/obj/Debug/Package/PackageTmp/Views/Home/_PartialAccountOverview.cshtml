@@ -1,0 +1,55 @@
+﻿@model CPS410_CampusBikeRental.ViewModels.AccountViewModel
+
+<h1>Account</h1>
+
+<h4>Bike Reservations</h4>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Scheduled Check Out</th>
+            <th>Scheduled Check In</th>
+            <th>Location</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var reservation in Model.checkouts)
+        {
+            if (reservation.username.Equals("sutte1aa") && reservation.scheduledOutDate.HasValue && (DateTime)reservation.scheduledOutDate >= DateTime.Now)
+            {
+                <tr>
+                    <td>@reservation.scheduledOutDate @*@reservation.scheduledInTime.Value.TimeOfDay*@</td>
+                    <td>@reservation.scheduledInDate @*@reservation.scheduledInTime.Value.TimeOfDay*@</td>
+                    <td>@reservation.location</td>
+                </tr>
+            }
+        }
+    </tbody>
+
+</table>
+
+<h4>Past and Current Rentals</h4>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Bike Number</th>
+            <th>Check Out</th>
+            <th>Check In</th>
+            @*<th>Location</th>*@
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var checkout in Model.checkouts)
+        {
+            if (checkout.username.Equals("sutte1aa") && checkout.checkOut1.HasValue || checkout.checkIn < DateTime.Now)
+            {
+                <tr>
+                    <td>@checkout.bikeNumber</td>
+                    <td>@checkout.checkOut1</td>
+                    <td>@checkout.checkIn</td>
+                    @*<td>@checkout.location</td>*@
+                </tr>
+            }
+        }
+    </tbody>
+
+</table>

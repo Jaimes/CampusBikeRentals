@@ -1,0 +1,31 @@
+﻿@model CPS410_CampusBikeRental.ViewModels.LoginViewModel
+
+@{
+	ViewBag.Title = "Login";
+}
+
+@using ( Html.BeginForm() )
+{
+	<div class="form-group">
+		<h2>Login</h2>
+	</div>
+
+	<div class="form-group">
+		<div class="row">
+			<div class="col-md-6 col-lg-4">
+				<label for="username">Username</label>
+				<input type="text" id="username" name="username" class="form-control" />
+			</div>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<div class="row">
+			<div class="col-md-6 col-lg-4">
+				<label for="password">Password</label>
+				<input type="password" id="password" name="password" class="form-control" />
+			</div>
+		</div>
+	</div>
+	<input type="submit" class="btn btn-default" value="Submit" />
+}

@@ -1,0 +1,61 @@
+﻿@model CPS410_CampusBikeRental.ViewModels.HomeViewModel
+
+<div class="content-wrapper">
+    <h3>What would you like to do?</h3>
+    <div class="row">
+        <div class="col-md-4 homeImg">
+            <a href="#partialRentalForm" class="homeImg" data-target="partialRentalForm" data-async="true">
+                <img src="~/Content/img/RentBike.png" />
+            </a>
+        </div>
+        <div class="col-md-4 homeImg">
+            <a href="#partialAccountOverview" class="homeImg" data-target="partialAccountOverview" data-async="true">
+                <img src="~/Content/img/ViewAccount.png" />
+            </a>
+        </div>
+        <div class="col-md-4 homeImg">
+            <a href="#partialAbout" class="homeImg" data-target="partialAbout" data-async="true">
+                <img src="~/Content/img/LearnAboutUs.png" />
+            </a>
+        </div>
+    </div>
+    <div class="row partialRow" id="partialRentalForm">
+        @Html.Partial("_PartialRentalForm", Model.RentalViewModel)
+    </div>
+    <div class="row partialRow" id="partialAccountOverview">
+        @Html.Partial("_PartialAccountOverview", Model.AccountViewModel)
+    </div>
+    <div class="row partialRow" id="partialAbout">
+        @Html.Partial("_PartialAbout")
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $('.partialRow').hide();
+
+        $('a[data-async="true"]').click(function () {
+            var self = $(this),
+                target = self.data('target');
+
+            if (target !== 'undefined') {
+                $('.partialRow').hide();
+                $('#' + target).show();
+            }
+        });
+
+        $(function () {
+            $('a[href*=#]:not([href=#])').click(function () {
+                if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+                    var target = $(this.hash);
+                    target = target.length ? target : $('[name=' + this.hash.slice(1) + ']') + 60;
+                    if (target.length) {
+                        $('html,body').animate({
+                            scrollTop: target.offset().top
+                        }, 1000);
+                        return false;
+                    }
+                }
+            });
+        });
+    });
+</script>

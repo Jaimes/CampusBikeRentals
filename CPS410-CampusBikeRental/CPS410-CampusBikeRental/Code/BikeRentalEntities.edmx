@@ -1,0 +1,230 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="sutte1aaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Bike">
+          <Key>
+            <PropertyRef Name="bikeNumber" />
+          </Key>
+          <Property Name="bikeNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="isAvailable" Type="bit" />
+          <Property Name="condition" Type="varchar" MaxLength="20" />
+          <Property Name="location" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Bike_Condition">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Condition" Type="varchar" MaxLength="15" />
+          <Property Name="Code" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Checkout">
+          <Key>
+            <PropertyRef Name="checkoutId" />
+          </Key>
+          <Property Name="checkoutId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="bikeNumber" Type="int" Nullable="false" />
+          <Property Name="checkOut" Type="datetime" />
+          <Property Name="checkIn" Type="datetime" />
+          <Property Name="scheduledOutDate" Type="datetime" />
+          <Property Name="scheduledOutTime" Type="datetime" />
+          <Property Name="scheduledInDate" Type="datetime" />
+          <Property Name="scheduledInTime" Type="datetime" />
+          <Property Name="location" Type="varchar" MaxLength="50" />
+          <Property Name="cancelledReservation" Type="bit" />
+        </EntityType>
+        <EntityType Name="Location">
+          <Key>
+            <PropertyRef Name="location" />
+            <PropertyRef Name="code" />
+          </Key>
+          <Property Name="location" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="code" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="username" />
+          </Key>
+          <Property Name="username" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="usertype" Type="varchar" MaxLength="20" />
+          <Property Name="bill" Type="money" />
+          <Property Name="canRentBike" Type="bit" />
+        </EntityType>
+        <EntityType Name="Usertype">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Usertype" Type="varchar" MaxLength="20" />
+          <Property Name="Code" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="sutte1aaModelStoreContainer">
+          <EntitySet Name="Bike" EntityType="Self.Bike" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Bike_Condition" EntityType="Self.Bike_Condition" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Checkout" EntityType="Self.Checkout" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Location" EntityType="Self.Location" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usertype" EntityType="Self.Usertype" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="sutte1aaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="BikeRentalEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Bikes" EntityType="sutte1aaModel.Bike" />
+          <EntitySet Name="Bike_Condition" EntityType="sutte1aaModel.Bike_Condition" />
+          <EntitySet Name="Checkouts" EntityType="sutte1aaModel.Checkout" />
+          <EntitySet Name="Locations" EntityType="sutte1aaModel.Location" />
+          <EntitySet Name="Users" EntityType="sutte1aaModel.User" />
+          <EntitySet Name="Usertypes" EntityType="sutte1aaModel.Usertype" />
+        </EntityContainer>
+        <EntityType Name="Bike">
+          <Key>
+            <PropertyRef Name="bikeNumber" />
+          </Key>
+          <Property Name="bikeNumber" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="isAvailable" Type="Boolean" />
+          <Property Name="condition" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="location" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Bike_Condition">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Condition" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Code" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Checkout">
+          <Key>
+            <PropertyRef Name="checkoutId" />
+          </Key>
+          <Property Name="checkoutId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="bikeNumber" Type="Int32" Nullable="false" />
+          <Property Name="checkOut1" Type="DateTime" Precision="3" />
+          <Property Name="checkIn" Type="DateTime" Precision="3" />
+          <Property Name="scheduledOutDate" Type="DateTime" Precision="3" />
+          <Property Name="scheduledOutTime" Type="DateTime" Precision="3" />
+          <Property Name="scheduledInDate" Type="DateTime" Precision="3" />
+          <Property Name="scheduledInTime" Type="DateTime" Precision="3" />
+          <Property Name="location" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cancelledReservation" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Location">
+          <Key>
+            <PropertyRef Name="location1" />
+            <PropertyRef Name="code" />
+          </Key>
+          <Property Name="location1" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="code" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="username" />
+          </Key>
+          <Property Name="username" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="usertype" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="bill" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="canRentBike" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Usertype">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Usertype1" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Code" Type="Int32" Nullable="false" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="sutte1aaModelStoreContainer" CdmEntityContainer="BikeRentalEntities">
+          <EntitySetMapping Name="Bikes">
+            <EntityTypeMapping TypeName="sutte1aaModel.Bike">
+              <MappingFragment StoreEntitySet="Bike">
+                <ScalarProperty Name="location" ColumnName="location" />
+                <ScalarProperty Name="condition" ColumnName="condition" />
+                <ScalarProperty Name="isAvailable" ColumnName="isAvailable" />
+                <ScalarProperty Name="bikeNumber" ColumnName="bikeNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Bike_Condition">
+            <EntityTypeMapping TypeName="sutte1aaModel.Bike_Condition">
+              <MappingFragment StoreEntitySet="Bike_Condition">
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Condition" ColumnName="Condition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Checkouts">
+            <EntityTypeMapping TypeName="sutte1aaModel.Checkout">
+              <MappingFragment StoreEntitySet="Checkout">
+                <ScalarProperty Name="cancelledReservation" ColumnName="cancelledReservation" />
+                <ScalarProperty Name="location" ColumnName="location" />
+                <ScalarProperty Name="scheduledInTime" ColumnName="scheduledInTime" />
+                <ScalarProperty Name="scheduledInDate" ColumnName="scheduledInDate" />
+                <ScalarProperty Name="scheduledOutTime" ColumnName="scheduledOutTime" />
+                <ScalarProperty Name="scheduledOutDate" ColumnName="scheduledOutDate" />
+                <ScalarProperty Name="checkIn" ColumnName="checkIn" />
+                <ScalarProperty Name="checkOut1" ColumnName="checkOut" />
+                <ScalarProperty Name="bikeNumber" ColumnName="bikeNumber" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="checkoutId" ColumnName="checkoutId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Locations">
+            <EntityTypeMapping TypeName="sutte1aaModel.Location">
+              <MappingFragment StoreEntitySet="Location">
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="location1" ColumnName="location" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="sutte1aaModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="canRentBike" ColumnName="canRentBike" />
+                <ScalarProperty Name="bill" ColumnName="bill" />
+                <ScalarProperty Name="usertype" ColumnName="usertype" />
+                <ScalarProperty Name="username" ColumnName="username" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usertypes">
+            <EntityTypeMapping TypeName="sutte1aaModel.Usertype">
+              <MappingFragment StoreEntitySet="Usertype">
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Usertype1" ColumnName="Usertype" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

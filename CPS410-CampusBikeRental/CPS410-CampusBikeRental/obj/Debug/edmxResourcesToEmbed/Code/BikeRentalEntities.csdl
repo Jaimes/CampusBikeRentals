@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="sutte1aaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="BikeRentalEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Bikes" EntityType="sutte1aaModel.Bike" />
+    <EntitySet Name="Bike_Condition" EntityType="sutte1aaModel.Bike_Condition" />
+    <EntitySet Name="Checkouts" EntityType="sutte1aaModel.Checkout" />
+    <EntitySet Name="Locations" EntityType="sutte1aaModel.Location" />
+    <EntitySet Name="Users" EntityType="sutte1aaModel.User" />
+    <EntitySet Name="Usertypes" EntityType="sutte1aaModel.Usertype" />
+  </EntityContainer>
+  <EntityType Name="Bike">
+    <Key>
+      <PropertyRef Name="bikeNumber" />
+    </Key>
+    <Property Name="bikeNumber" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="isAvailable" Type="Boolean" />
+    <Property Name="condition" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="location" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Bike_Condition">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Condition" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="Code" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Checkout">
+    <Key>
+      <PropertyRef Name="checkoutId" />
+    </Key>
+    <Property Name="checkoutId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="username" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="bikeNumber" Type="Int32" Nullable="false" />
+    <Property Name="checkOut1" Type="DateTime" Precision="3" />
+    <Property Name="checkIn" Type="DateTime" Precision="3" />
+    <Property Name="scheduledOutDate" Type="DateTime" Precision="3" />
+    <Property Name="scheduledOutTime" Type="DateTime" Precision="3" />
+    <Property Name="scheduledInDate" Type="DateTime" Precision="3" />
+    <Property Name="scheduledInTime" Type="DateTime" Precision="3" />
+    <Property Name="location" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="cancelledReservation" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Location">
+    <Key>
+      <PropertyRef Name="location1" />
+      <PropertyRef Name="code" />
+    </Key>
+    <Property Name="location1" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="code" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="username" />
+    </Key>
+    <Property Name="username" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="usertype" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="bill" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="canRentBike" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Usertype">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Usertype1" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Code" Type="Int32" Nullable="false" />
+  </EntityType>
+</Schema>

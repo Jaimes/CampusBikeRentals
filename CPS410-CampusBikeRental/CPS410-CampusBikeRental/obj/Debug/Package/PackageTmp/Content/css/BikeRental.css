@@ -1,0 +1,60 @@
+﻿img {
+  max-width: 100%;
+}
+h1,
+h2,
+h3 {
+  color: #6a0032;
+}
+h2 {
+  display: inline;
+}
+.homeImg {
+  text-align: center;
+  padding: 5px 0;
+}
+.partialRow {
+  padding: 0 15px;
+}
+table {
+  margin: 10px 0;
+}
+table tr:nth-child(2n+2) {
+  background: #eee;
+}
+table a {
+  border: 1px solid #CCC;
+  border-radius: 6px;
+  padding: 2px 12px;
+}
+table a:hover {
+  background-color: #CCC;
+  color: #333;
+  text-decoration: none;
+}
+.headerButtons {
+  float: right;
+}
+.header .cmichAppBanner .btn-signout {
+  top: 18px;
+}
+.appNameLink {
+  float: left;
+  height: 67px;
+  margin-left: 53px;
+  margin-top: 10px;
+  width: 200px;
+}
+/*Media queries*/
+
+/* Small devices (tablets, 768px and up) */
+@media (max-width: 470px) {
+	.appNameLink {
+		width: 90%;
+	}
+
+	.appNameLink h2 {
+		font-size: 24px;
+	}
+}
+/*# sourceMappingURL=BikeRental.css.map */

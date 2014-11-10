@@ -1,0 +1,57 @@
+﻿@model CPS410_CampusBikeRental.Code.Bike
+
+@{
+    ViewBag.Title = "AddBike";
+}
+
+<h2>Add Bike</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.bikeNumber, "Bike Number")
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor( model => model.bikeNumber, new { @class = "form-control" } )
+            @Html.ValidationMessageFor(model => model.bikeNumber)
+        </div>
+
+        @*<div class="editor-label">
+            @Html.LabelFor(model => model.isAvailable, "Available to Rent")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor( model => model.isAvailable, new { @class = "form-control" } )
+            @Html.ValidationMessageFor(model => model.isAvailable)
+        </div>*@
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.condition, "Condition")
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor( model => model.condition, new { @class = "form-control" } )
+            @Html.ValidationMessageFor(model => model.condition)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.location, "Location")
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor( model => model.location, new { @class = "form-control" } )
+            @Html.ValidationMessageFor(model => model.location)
+        </div>
+
+		<br />
+        <p>
+            <input type="submit" value="Submit" class="btn btn-success"/>
+			@Html.ActionLink( "Cancel", "Index", null, new { @class = "btn btn-danger" } )
+        </p>
+    </fieldset>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

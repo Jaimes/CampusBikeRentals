@@ -1,0 +1,111 @@
+﻿@model CPS410_CampusBikeRental.ViewModels.AccountViewModel
+
+<h2>Admin Dashboard</h2>
+
+<div class="headerButtons">
+    @Html.ActionLink("New Rental", "CheckOutForm", null, new { @class = "btn btn-default" })
+    @Html.ActionLink("Add Bike", "AddBike", null, new { @class = "btn btn-default" })
+    <a class="btn btn-default" data-toggle="modal" data-target="#bikeModal">Bike Inventory</a>
+    <div class="modal fade" id="bikeModal" tabindex="-1" role="dialog" aria-labelledby="bikeLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="bikeLabel">All Bikes</h4>
+                </div>
+                <div class="modal-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Available?</th>
+                                <th>Condition</th>
+                                <th>Location</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.bikes)
+                            {
+                                <tr>
+                                    <td>@item.bikeNumber</td>
+                                    <td>@item.isAvailable</td>
+                                    <td>@item.condition</td>
+                                    <td>@item.location</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr />
+
+<h3>Bike Reservations</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Username</th>
+            <th>Scheduled Check Out</th>
+            <th>Scheduled Check In</th>
+            <th>Location</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var reservation in Model.checkouts)
+        {
+            if (reservation.scheduledOutDate.HasValue && reservation.scheduledOutDate >= DateTime.Now)
+            {
+                <tr>
+                    <td>@reservation.username</td>
+                    <td>@reservation.scheduledOutDate @*@reservation.scheduledInTime*@</td>
+                    <td>@reservation.scheduledInDate @*@reservation.scheduledInTime*@</td>
+                    <td>@reservation.location</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+<hr />
+
+<h3>Past and Current Rentals</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Username</th>
+            <th>Bike Number</th>
+            <th>Check Out</th>
+            <th>Check In</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var checkout in Model.checkouts)
+        {
+            if (checkout.checkOut1.HasValue || checkout.checkIn < DateTime.Now)
+            {
+                <tr>
+                    <td>@checkout.username</td>
+                    <td>@checkout.bikeNumber.ToString()</td>
+                    <td>@checkout.checkOut1</td>
+                    <td>@checkout.checkIn</td>
+                    @if (@checkout.checkIn.HasValue)
+                    {
+                        <td></td>
+                    }
+                    else
+                    {
+                        <td>@Html.ActionLink("Check In", "CheckInForm", new { checkoutId = checkout.checkoutId })</td>
+                    }
+                </tr>
+            }
+        }
+    </tbody>
+</table>

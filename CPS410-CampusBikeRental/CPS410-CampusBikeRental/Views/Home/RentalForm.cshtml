@@ -1,0 +1,94 @@
+﻿@model CPS410_CampusBikeRental.Code.Checkout
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+	<fieldset>
+		<div class="form-group">
+			<div class="editor-label">
+				@Html.LabelFor( model => model.scheduledOutDate, "Pickup Date & Time:" )
+			</div>
+			<div class="row">
+				<div class="col-md-6 col-lg-4">
+					@Html.TextBoxFor( model => model.scheduledOutDate, new { @class = "form-control date" } )
+					@Html.ValidationMessageFor( model => model.scheduledOutDate )
+				</div>
+			</div>
+		</div>
+
+		@*<div class="form-group">
+			<div class="editor-label">
+				@Html.LabelFor( model => model.scheduledOutTime, "Pickup Time:" )
+			</div>
+			<div class="row">
+				<div class="col-md-6 col-lg-4">
+					@Html.TextBoxFor( model => model.scheduledOutTime, new { @class = "form-control" } )
+					@Html.ValidationMessageFor( model => model.scheduledOutTime )
+				</div>
+			</div>
+		</div>*@
+
+		<div class="form-group">
+			<div class="editor-label">
+				@Html.LabelFor( model => model.scheduledInDate, "Return Date & Time:" )
+			</div>
+			<div class="row">
+				<div class="col-md-6 col-lg-4">
+					@Html.TextBoxFor( model => model.scheduledInDate, new { @class = "form-control date" } )
+					@Html.ValidationMessageFor( model => model.scheduledInDate )
+				</div>
+			</div>
+		</div>
+
+		@*<div class="form-group">
+			<div class="editor-label">
+				@Html.LabelFor( model => model.scheduledInTime, "Return time:" )
+			</div>
+			<div class="row">
+				<div class="col-md-6 col-lg-4">
+					@Html.TextBoxFor( model => model.scheduledInTime, new { @class = "form-control" } )
+					@Html.ValidationMessageFor( model => model.scheduledInTime )
+				</div>
+			</div>
+		</div>*@
+
+		<div class="form-group">
+			<div class="editor-label">
+				@Html.LabelFor( model => model.location, "Location:" )
+			</div>
+			<div class="row">
+				<div class="col-md-6 col-lg-4">
+					@Html.DropDownListFor( model => model.location, new List<SelectListItem>
+                     {
+                        new SelectListItem{ Text="North Campus", Value = "North Campus" },
+						new SelectListItem{ Text="East Campus", Value="East Campus"},
+						new SelectListItem{ Text="South Campus", Value="South Campus"},
+						new SelectListItem{ Text="West Campus", Value="West Campus"}
+					 }
+			, new { @class = "form-control" }
+			)
+					@Html.ValidationMessageFor( model => model.location )
+				</div>
+			</div>
+		</div>
+
+		<br/>
+		<p>
+			<input type="submit" value="Submit" class="btn btn-success" />
+			@Html.ActionLink( "Cancel", "AccountOverview", null, new { @class = "btn btn-danger" } )
+		</p>
+	</fieldset>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<script>
+    $(document).ready(function () {
+        $('.date').datepicker({ dateFormat: "mm/dd/yy" });
+    });
+</script>

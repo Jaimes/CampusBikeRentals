@@ -1,0 +1,467 @@
+﻿/*------------------------------------------------------------*\
+	*Filename:		applicationTemplate.less/.css
+	
+	*Description: 	LESS styles for the Application Template
+					
+	*Version:		2.0.1 (10/02/2014)
+	
+	*Author:		Jesse Earley/ Jack Wuerfel
+	
+	*Department:	Office of Information Technology
+\*------------------------------------------------------------*/
+/*------------------------------------------------------------*\
+	TABLE OF CONTENTS
+	
+	*Variables                              -   Commonly used styles that can be readily updated
+
+    *Mixins                                 -   Commonly used properties
+
+    *Reusable Classes/Bootstrap Overrides	-   Reusable styles and overrides
+
+    *Top Header					            -	Top Banner elements
+									
+	*Admin Navbar		                    -	Admin Navbar styles
+
+    *Application Navbar		                -	Application Navbar styles
+
+    *Page Content	                        -	Page Content and side nav styles
+
+    *Application Footer                     -   Application Footer styles
+
+	*Footer					                -	Footer Styles
+
+	*Media Queries					        -	Media Queries for responsive styles
+\*------------------------------------------------------------*/
+/*------Variables-------*/
+/*------Mixins-------*/
+.oxygen {
+  font-family: 'Oxygen', sans-serif;
+}
+.roboto {
+  font-family: 'Roboto Slab', serif;
+}
+html {
+  background-color: #4c0026;
+}
+body {
+  background-color: #FAFAFA;
+  font-family: 'Oxygen', sans-serif;
+}
+/*------Reusable Classes/Bootstrap Overrides-------*/
+.btn-maroon {
+  background: linear-gradient(to bottom, #6a0032, #4c0026);
+  background: -moz-linear-gradient(top, #6a0032, #4c0026);
+  background: -webkit-gradient(linear, 0 0, 0 100%, from(#6a0032), to(#4c0026));
+  background: -webkit-linear-gradient(top, #6a0032, #4c0026);
+  background: -o-linear-gradient(top, #6a0032, #4c0026);
+  border-color: transparent !important;
+  color: #eeeeee;
+}
+.btn-maroon:link,
+.btn-maroon:visited,
+.btn-maroon:hover,
+.btn-maroon:active,
+.btn-maroon:focus {
+  background: #6a0032;
+  color: #eeeeee;
+}
+.btn-maroon .inline-block-middle {
+  font-size: 11px;
+}
+.btn-noDropdown {
+  border-radius: 3px !important;
+}
+.accentGoldLight {
+  color: #6c5328;
+  font-weight: lighter;
+}
+.dropdown-menu-parent:hover > .dropdown-menu {
+  color: #333333 !important;
+  display: block;
+  width: 200px;
+}
+.form-btn {
+  background: linear-gradient(to bottom, #fffbed, #fbe5a0);
+  background: -moz-linear-gradient(top, #fffbed, #fbe5a0);
+  background: -webkit-gradient(linear, 0 0, 0 100%, from(#fffbed), to(#fbe5a0));
+  background: -webkit-linear-gradient(top, #fffbed, #fbe5a0);
+  background: -o-linear-gradient(top, #fffbed, #fbe5a0);
+  border-color: #DEBE78;
+  color: #333333;
+  float: right;
+  position: relative;
+  right: 10px;
+  top: -34px;
+  width: 20%;
+}
+.form-btn:hover,
+.form-btn:focus,
+.form-btn:active,
+.form-btn:link {
+  background: #fbe5a0;
+  color: #333333;
+}
+.navbar-default .btn-gold,
+.navbar-default .navbar-toggle-admin:hover,
+.navbar-default .navbar-toggle-admin:focus,
+.navbar-default .navbar-toggle-application:hover,
+.navbar-default .navbar-toggle-application:focus,
+.navbar-default .navbar-toggle-sideNav:hover,
+.navbar-default .navbar-toggle-sideNav:focus {
+  background: none repeat scroll 0 0 #fbe5a0;
+  border-color: #d7a404;
+  border-width: 0.15em;
+}
+.navbar-default .navbar-brand {
+  font-size: 20px;
+  font-weight: 900;
+}
+.form-control:focus {
+  border-color: #6a0032;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(106, 0, 50, 0.6);
+  outline: 0 none;
+}
+.dropdown-search {
+  height: 46px;
+}
+.nav .open > a,
+.nav .open > a:hover,
+.nav .open > a:focus {
+  background-color: #fbe5a0;
+  border-color: #debe78;
+}
+.navbar-collapse {
+  max-height: none;
+}
+.container-narrow {
+  width: 90%;
+}
+/*------Top Header-------*/
+.header {
+  background-image: linear-gradient(to bottom, #6a0032, #4c0026);
+  background-image: -moz-linear-gradient(top, #6a0032, #4c0026);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#6a0032), to(#4c0026));
+  background-image: -webkit-linear-gradient(top, #6a0032, #4c0026);
+  background-image: -o-linear-gradient(top, #6a0032, #4c0026);
+  border-bottom: 3px solid #d7a404;
+  height: 75px;
+  position: relative;
+  width: 100%;
+}
+.header .cmichAppBanner .cmichAppBanner_headerWordmark {
+  float: left;
+  height: 67px;
+  margin-left: 53px;
+  margin-top: 10px;
+  width: 122px;
+}
+.header .cmichAppBanner .btn-signout {
+  float: right;
+  position: relative;
+  right: 20px;
+  top: 8px;
+}
+/*--------Admin Navbar---------*/
+.cmichAdminNav {
+  background: linear-gradient(to bottom, #fffbed, #fbe5a0);
+  background: -moz-linear-gradient(top, #fffbed, #fbe5a0);
+  background: -webkit-gradient(linear, 0 0, 0 100%, from(#fffbed), to(#fbe5a0));
+  background: -webkit-linear-gradient(top, #fffbed, #fbe5a0);
+  background: -o-linear-gradient(top, #fffbed, #fbe5a0);
+  box-shadow: 0 0 5px #EEEEEE;
+  height: auto;
+  padding: 10px;
+  position: relative;
+  width: 100%;
+  border: 1px solid #DEBE78;
+}
+.cmichAdminNav .cmichAdminNav_container {
+  margin-top: -6px;
+}
+.cmichAdminNav .navbar-brand-admin {
+  font-weight: bolder;
+  font-size: 20px;
+}
+.cmichAdminNav .navbar-brand-admin:link,
+.cmichAdminNav .navbar-brand-admin:visited,
+.cmichAdminNav .navbar-brand-admin:hover,
+.cmichAdminNav .navbar-brand-admin:active,
+.cmichAdminNav .navbar-brand-admin:focus {
+  text-decoration: none !important;
+}
+.cmichAdminNav #adminBrand {
+  color: #6c5328;
+}
+.cmichAdminNav .btn-admin {
+  background: linear-gradient(to bottom, #fffbed, #fbe5a0);
+  background: -moz-linear-gradient(top, #fffbed, #fbe5a0);
+  background: -webkit-gradient(linear, 0 0, 0 100%, from(#fffbed), to(#fbe5a0));
+  background: -webkit-linear-gradient(top, #fffbed, #fbe5a0);
+  background: -o-linear-gradient(top, #fffbed, #fbe5a0);
+  border-color: #DEBE78;
+  color: #333333;
+}
+.cmichAdminNav .btn-admin:hover,
+.cmichAdminNav .btn-admin:focus,
+.cmichAdminNav .btn-admin:active,
+.cmichAdminNav .btn-admin:link {
+  background: #fbe5a0;
+  color: #333333;
+}
+.cmichAdminNav .admin-search {
+  border: 1px solid #DEBE78;
+  height: 34px;
+  margin-top: 8px;
+  margin-left: 5px;
+  border-radius: 3px 3px 3px 3px;
+}
+.cmichAdminNav .admin-search .icon-cmich-search {
+  color: #000;
+  position: relative;
+  top: -7px;
+}
+.cmichAdminNav .admin-search .form-control {
+  width: 70%;
+  margin-left: 4px;
+}
+.cmichAdminNav .navbar-default .navbar-nav > li > a {
+  color: #fbe5a0;
+}
+.cmichAdminNav .navbar-default .navbar-nav > li > a:hover,
+.cmichAdminNav .navbar-default .navbar-nav > li > a:focus {
+  color: #fff;
+}
+/*------------Application Navbar-----------*/
+.cmichAppNav {
+  background: none;
+}
+.cmichAppNav .cmichAppNav_container {
+  background-image: linear-gradient(to bottom, #fffbed, #fbe5a0);
+  background-image: -moz-linear-gradient(top, #fffbed, #fbe5a0);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#fffbed), to(#fbe5a0));
+  background-image: -webkit-linear-gradient(top, #fffbed, #fbe5a0);
+  background-image: -o-linear-gradient(top, #fffbed, #fbe5a0);
+  box-shadow: 0 0 5px #EEEEEE;
+  margin: 0 auto;
+  margin-top: 20px;
+  position: relative;
+  width: 90%;
+  border-color: #DEBE78;
+  border-radius: 4px;
+}
+.cmichAppNav .cmichAppNav_container .navbar-brand {
+  color: #6c5328;
+  font-size: 20px;
+  font-weight: 500;
+}
+.cmichAppNav .cmichAppNav_container .form-control {
+  width: 70%;
+  margin-left: 4px;
+}
+.cmichAppNav .cmichAppNav_container li a {
+  color: #333333;
+}
+.cmichAppNav .cmichAppNav_container li.dropdown-menu-parent:hover,
+.cmichAppNav .cmichAppNav_container li.dropdown-menu-parent:active,
+.cmichAppNav .cmichAppNav_container li.dropdown-menu-parent:focus {
+  background-color: #fbe5a0;
+  color: #333333 !important;
+}
+.cmichAppNav .cmichAppNav_container.dropdown-menu-parent:hover > .dropdown-menu {
+  color: #333333 !important;
+  display: block;
+  width: 200px;
+}
+.cmichAppNav .cmichAppNav_container .nav > li > a:hover,
+.cmichAppNav .cmichAppNav_container .nav > li > a:focus {
+  background-color: #fbe5a0;
+}
+/*------------Page Content-----------*/
+.pageContent {
+  width: 100%;
+  min-height: 500px;
+}
+.pageContent .pageContent_applicationBodyHolderOuter {
+  margin: 0 0 20px;
+}
+.pageContent .pageContent_applicationBodyHolderOuter .applicationBodyTabs {
+  width: 90%;
+  margin: 20px auto 0;
+}
+.pageContent .pageContent_applicationBodyHolderOuter .applicationBodyTabs li:first-child {
+  padding-left: 20px;
+}
+.pageContent .pageContent_applicationBodyHolderInner {
+  background-color: #FFF;
+  color: #333333;
+  height: auto;
+  width: 90%;
+  margin: 0 auto;
+  position: relative;
+  border-left: 1px solid #DDDDDD;
+  border-right: 1px solid #DDDDDD;
+  border-bottom: 1px solid #DDDDDD;
+  border-radius: 4px 4px 4px 4px;
+  padding: 10px;
+  box-shadow: 0 0 5px #EEEEEE;
+}
+.pageContent .sidebar-nav .navbar-side {
+  background: none;
+  background-color: #fef5d6;
+  padding-bottom: 20px;
+  border-radius: 10px;
+  border-color: #DEBE78;
+}
+.pageContent .sidebar-nav .navbar-side .navbar-header {
+  width: 100%;
+}
+.pageContent .sidebar-nav .navbar-side .navbar-header .navbar-brand {
+  color: #6C5328;
+}
+.pageContent .sidebar-nav .navbar-side .sidebar-navbar-collapse {
+  border-color: #DEBE78;
+}
+.pageContent .sidebar-nav .navbar-side ul {
+  width: 100%;
+  list-style-type: none;
+}
+.pageContent .sidebar-nav .navbar-side ul li {
+  float: none;
+}
+.pageContent .sidebar-nav .navbar-side ul li a {
+  border-radius: 10px;
+  padding-bottom: 6px;
+  padding-top: 6px;
+  color: #333;
+  display: block;
+  padding: 6px 10px;
+}
+.pageContent .sidebar-nav .navbar-side ul li a:hover,
+.pageContent .sidebar-nav .navbar-side ul li a:focus {
+  background-color: #FBE5A0;
+  text-decoration: none;
+}
+/*-------Application Footer-----*/
+.appFooter {
+  background-image: linear-gradient(to bottom, #fef5d6, #fbe5a0);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#fef5d6), to(#fbe5a0));
+  background-image: -webkit-linear-gradient(top, #fef5d6, #fbe5a0);
+  background-image: -o-linear-gradient(top, #fef5d6, #fbe5a0);
+  width: 100%;
+  outline: 3px solid #d7a404;
+  height: 180px;
+}
+.appFooter .appFooterCol {
+  border-right: 0.2em dotted #6c5328;
+  text-align: left;
+}
+.appFooter .appFooterCol h4 {
+  color: #6C5328;
+}
+.appFooter .appFooterCol ul,
+.appFooter .appFooterCol li,
+.appFooter .appFooterCol a {
+  color: #6C5328;
+  list-style-type: none;
+  margin-left: -13px;
+}
+.appFooter .appFooterCol-last {
+  border-right: none;
+}
+.appFooter a {
+  text-decoration: none;
+}
+/*------Footer-------*/
+.pageFooter {
+  background-image: linear-gradient(to bottom, #6a0032, #4c0026);
+  background-image: -moz-linear-gradient(top, #6a0032, #4c0026);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#6a0032), to(#4c0026));
+  background-image: -webkit-linear-gradient(top, #6a0032, #4c0026);
+  background-image: -o-linear-gradient(top, #6a0032, #4c0026);
+  color: #ffffff;
+  height: auto;
+  border-top: 3px solid #d7a404;
+  position: relative;
+  text-align: center;
+  bottom: auto;
+  width: 100%;
+  min-height: 100px;
+}
+.pageFooter a:link,
+.pageFooter a:visited,
+.pageFooter a:hover,
+.pageFooter a:active {
+  color: #ffc82e;
+  text-decoration: none;
+}
+.pageFooter .footerCol {
+  border-right: 0.2em solid #660033;
+  text-align: left;
+}
+.pageFooter .footerCol h4 {
+  color: #ffc82e;
+}
+.pageFooter .footerCol ul,
+.pageFooter .footerCol li,
+.pageFooter .footerCol a {
+  color: #ffc82e;
+  list-style-type: none;
+  margin-left: -13px;
+}
+.pageFooter .footerCol-last {
+  border-right: none;
+}
+.pageFooter .footerDivider {
+  background-color: #603;
+  border-color: transparent;
+  clear: both;
+  height: 0.1em;
+  margin-top: -10px;
+  overflow: hidden;
+  position: relative;
+  width: 90%;
+}
+.pageFooter .pageFooter_footerText {
+  margin-top: 10px;
+}
+/*------Media Queries-------*/
+@media only screen and (max-width: 977px) {
+  .btn-admin {
+    width: 90%;
+  }
+  .btn-group,
+  .btn-noDropdown {
+    width: 100%;
+  }
+  .dropdown-toggle {
+    width: 10%;
+  }
+  .dropdown-search {
+    top: -9px;
+  }
+  .navbar-collapse li {
+    width: 99%;
+    padding: 0;
+    margin: 0;
+  }
+  .dropdown-menu-parent:hover > .dropdown-menu {
+    position: relative;
+    width: 100%;
+  }
+  .pageContent .sidebar-nav .navbar-side ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+  .pageContent .sidebar-nav .navbar-side ul li ul {
+    padding: 0 40px;
+  }
+  .cmichAdminNav .admin-search {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .cmichAdminNav .admin-search .icon-cmich-search {
+    top: -2px;
+  }
+}

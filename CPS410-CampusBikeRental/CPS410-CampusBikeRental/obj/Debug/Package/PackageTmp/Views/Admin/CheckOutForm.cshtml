@@ -1,0 +1,60 @@
+﻿@model CPS410_CampusBikeRental.Code.Checkout
+
+@{
+    ViewBag.Title = "Check Out Form";
+}
+
+<h2>Check Out Bike</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+	<fieldset>
+
+		<div class="form-group">
+			<div class="editor-label">
+				@Html.LabelFor( model => model.username, "Username" )
+			</div>
+			<div class="row">
+				<div class="col-md-6 col-lg-4">
+					@Html.TextBoxFor( model => model.username, new { @class = "form-control" } )
+					@Html.ValidationMessageFor( model => model.username )
+				</div>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class="editor-label">
+				@Html.LabelFor( model => model.bikeNumber, "Bike Number" )
+			</div>
+			<div class="row">
+				<div class="col-md-6 col-lg-4">
+					@Html.TextBoxFor( model => model.bikeNumber, new { @class = "form-control" } )
+					@Html.ValidationMessageFor( model => model.bikeNumber )
+				</div>
+			</div>
+		</div>
+
+		@*<div class="editor-label">
+			@Html.LabelFor( model => model.location )
+		</div>
+		<div class="editor-field">
+			@Html.EditorFor( model => model.location )
+			@Html.ValidationMessageFor( model => model.location )
+		</div>*@
+
+		<br/>
+		<p>
+			<input type="submit" value="Check Bike Out" class="btn btn-success" />
+			@Html.ActionLink( "Cancel", "Index", null, new { @class = "btn btn-danger" } )
+		</p>
+	</fieldset>
+}
+
+<div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,63 @@
+﻿@model CPS410_CampusBikeRental.ViewModels.RentalViewModel
+
+<h1>Rental Form</h1>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <div class="form-group">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.CheckOut.scheduledOutDate, "Pickup Date & Time:")
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-lg-4">
+                    @Html.TextBoxFor(model => model.CheckOut.scheduledOutDate, new { @class = "form-control date" })
+                    @Html.ValidationMessageFor(model => model.CheckOut.scheduledOutDate)
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.CheckOut.scheduledInDate, "Return Date & Time:")
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-lg-4">
+                    @Html.TextBoxFor(model => model.CheckOut.scheduledInDate, new { @class = "form-control date" })
+                    @Html.ValidationMessageFor(model => model.CheckOut.scheduledInDate)
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.CheckOut.location, "Location:")
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-lg-4">
+                    @Html.DropDownListFor(model => model.CheckOut.location, new List<SelectListItem>
+                     {
+                        new SelectListItem{ Text="North Campus", Value = "North Campus" },
+						new SelectListItem{ Text="East Campus", Value="East Campus"},
+						new SelectListItem{ Text="South Campus", Value="South Campus"},
+						new SelectListItem{ Text="West Campus", Value="West Campus"}
+					 }
+            , new { @class = "form-control" }
+            )
+                    @Html.ValidationMessageFor(model => model.CheckOut.location)
+                </div>
+            </div>
+        </div>
+
+        <br />
+        <p>
+            <input type="submit" value="Submit" class="btn btn-success" />
+            @Html.ActionLink("Cancel", "AccountOverview", null, new { @class = "btn btn-danger" })
+        </p>
+    </fieldset>
+}
+

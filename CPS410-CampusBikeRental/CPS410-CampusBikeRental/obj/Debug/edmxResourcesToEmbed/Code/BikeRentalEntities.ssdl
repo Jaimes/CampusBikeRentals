@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="sutte1aaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Bike">
+    <Key>
+      <PropertyRef Name="bikeNumber" />
+    </Key>
+    <Property Name="bikeNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="isAvailable" Type="bit" />
+    <Property Name="condition" Type="varchar" MaxLength="20" />
+    <Property Name="location" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Bike_Condition">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Condition" Type="varchar" MaxLength="15" />
+    <Property Name="Code" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Checkout">
+    <Key>
+      <PropertyRef Name="checkoutId" />
+    </Key>
+    <Property Name="checkoutId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="username" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="bikeNumber" Type="int" Nullable="false" />
+    <Property Name="checkOut" Type="datetime" />
+    <Property Name="checkIn" Type="datetime" />
+    <Property Name="scheduledOutDate" Type="datetime" />
+    <Property Name="scheduledOutTime" Type="datetime" />
+    <Property Name="scheduledInDate" Type="datetime" />
+    <Property Name="scheduledInTime" Type="datetime" />
+    <Property Name="location" Type="varchar" MaxLength="50" />
+    <Property Name="cancelledReservation" Type="bit" />
+  </EntityType>
+  <EntityType Name="Location">
+    <Key>
+      <PropertyRef Name="location" />
+      <PropertyRef Name="code" />
+    </Key>
+    <Property Name="location" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="code" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="username" />
+    </Key>
+    <Property Name="username" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="usertype" Type="varchar" MaxLength="20" />
+    <Property Name="bill" Type="money" />
+    <Property Name="canRentBike" Type="bit" />
+  </EntityType>
+  <EntityType Name="Usertype">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Usertype" Type="varchar" MaxLength="20" />
+    <Property Name="Code" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="sutte1aaModelStoreContainer">
+    <EntitySet Name="Bike" EntityType="Self.Bike" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Bike_Condition" EntityType="Self.Bike_Condition" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Checkout" EntityType="Self.Checkout" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Location" EntityType="Self.Location" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usertype" EntityType="Self.Usertype" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

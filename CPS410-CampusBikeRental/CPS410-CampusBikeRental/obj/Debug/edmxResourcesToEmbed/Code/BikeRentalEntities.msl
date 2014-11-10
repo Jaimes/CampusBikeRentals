@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="sutte1aaModelStoreContainer" CdmEntityContainer="BikeRentalEntities">
+    <EntitySetMapping Name="Bikes">
+      <EntityTypeMapping TypeName="sutte1aaModel.Bike">
+        <MappingFragment StoreEntitySet="Bike">
+          <ScalarProperty Name="location" ColumnName="location" />
+          <ScalarProperty Name="condition" ColumnName="condition" />
+          <ScalarProperty Name="isAvailable" ColumnName="isAvailable" />
+          <ScalarProperty Name="bikeNumber" ColumnName="bikeNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Bike_Condition">
+      <EntityTypeMapping TypeName="sutte1aaModel.Bike_Condition">
+        <MappingFragment StoreEntitySet="Bike_Condition">
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Condition" ColumnName="Condition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Checkouts">
+      <EntityTypeMapping TypeName="sutte1aaModel.Checkout">
+        <MappingFragment StoreEntitySet="Checkout">
+          <ScalarProperty Name="cancelledReservation" ColumnName="cancelledReservation" />
+          <ScalarProperty Name="location" ColumnName="location" />
+          <ScalarProperty Name="scheduledInTime" ColumnName="scheduledInTime" />
+          <ScalarProperty Name="scheduledInDate" ColumnName="scheduledInDate" />
+          <ScalarProperty Name="scheduledOutTime" ColumnName="scheduledOutTime" />
+          <ScalarProperty Name="scheduledOutDate" ColumnName="scheduledOutDate" />
+          <ScalarProperty Name="checkIn" ColumnName="checkIn" />
+          <ScalarProperty Name="checkOut1" ColumnName="checkOut" />
+          <ScalarProperty Name="bikeNumber" ColumnName="bikeNumber" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="checkoutId" ColumnName="checkoutId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Locations">
+      <EntityTypeMapping TypeName="sutte1aaModel.Location">
+        <MappingFragment StoreEntitySet="Location">
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="location1" ColumnName="location" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="sutte1aaModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="canRentBike" ColumnName="canRentBike" />
+          <ScalarProperty Name="bill" ColumnName="bill" />
+          <ScalarProperty Name="usertype" ColumnName="usertype" />
+          <ScalarProperty Name="username" ColumnName="username" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usertypes">
+      <EntityTypeMapping TypeName="sutte1aaModel.Usertype">
+        <MappingFragment StoreEntitySet="Usertype">
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Usertype1" ColumnName="Usertype" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
